@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Pescando Lineas",
+  "short_name": "Pescando Lineas",
+  "version": "1.0.5",
+  "description": "Pescando Lineas verifica si hay líneas registradas a tu nombre en los portales del CRT México. Sin afiliación con el CRT.",
+  "author": "Pescando Lineas",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Pescando Lineas",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "minimum_chrome_version": "121",
+  "host_permissions": [
+    "https://api-iso-prod.ientc.dev/*",
+    "https://apib.mirlo.com/*",
+    "https://app.weex.mx/*",
+    "https://consultavinculacion.megamovil.mx/*",
+    "https://core.newww.mx/*",
+    "https://femaseisa.com/*",
+    "https://ku.diri.mx/*",
+    "https://mobig.mx/*",
+    "https://play.prod.yomobile.xyz/*",
+    "https://www.soriup.mx/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://btz.mx/*",
+        "https://rnu.altanredes.com/*",
+        "https://verificar.oxiomobile.com/*",
+        "https://vinculacion.mimovil.com.mx/*",
+        "https://vinculacion.mosi.mx/*",
+        "https://vinculacion.redphone.com.mx/*",
+        "https://virginmobile.mx/*",
+        "https://www.dalefon.mx/*",
+        "https://www.internetbienestarmex.com/*"
+      ],
+      "js": [
+        "storage.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https:; object-src 'none'; frame-src 'none'"
+  }
+}

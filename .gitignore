@@ -1,0 +1,13 @@
+# Archivos compilados y zips
+dist/
+*.zip
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias de Node (si las hubiera)
+node_modules/
+
+# Archivos de configuración local
+.env
